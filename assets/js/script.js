@@ -24,7 +24,8 @@ var quizQuestions = [
     var olEl = document.createElement('ol');
     var answersHTML = document.getElementById('answers')
     var score = 0;
-
+  
+    
 
     function startgame () {
         console.log('click');
@@ -47,24 +48,27 @@ var quizQuestions = [
             var button = document.createElement('button');
             button.innerText = answer;
             answersHTML.append(button);
-            }), 
-            // Below, is our conditional statement 
-            answersHTML.addEventListener('click',  function () 
-            {
-            for (var i = 0; i < answers.length; i++){
-            if (answers[i] === quizQuestions.correct) {
-            score =+ 1;
-            currentQuestionIndex++
-             }
-             else {
-            score += 0;
-            currentQuestionIndex++;
-            timer -= (1000 * 5);
+            });
         }
-    }
-});
-}
     
+
+
+   // Below, is our conditional statement. At this moment, this piece of code is not working. I am trying to compare the answer the user clicks on to the "correct" answer displayed in the object "quizQuestions" above.
+         answers.addEventListener('click',  function () {
+                 for ( var i = 0; i < answers.length; i++){
+                   
+                        if (answers[i] === quizQuestions.correct) {
+                            score = +1;
+                            currentQuestionIndex++;
+                        }
+                        else {
+                            score += 0;
+                            currentQuestionIndex++;
+                            // timer -= (1000 * 5);
+                        }
+                    }
+                });
+ 
 
 // Whenever we click on the start button we will run the function in the block of code. First, we are preventing the default setting that refreshes the page. And then, we are removing the start container after pressing "start" and showing the first question. 
     startButton.addEventListener('click', (e) => {
@@ -101,6 +105,4 @@ var downloadTimer = setInterval(function(){
 //         }
 //     }
 // });
-  
-      
- 
+    
