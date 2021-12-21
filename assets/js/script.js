@@ -22,8 +22,7 @@ var quizQuestions = [
     var questionContainer = document.getElementById('questionContainer');
     var currentQuestionIndex = 0;
     var olEl = document.createElement('ol');
-    var answers = document.getElementById('answers');
-    // var eachAnswer = document.createElement('li');
+    var answersHTML = document.getElementById('answers')
     var score = 0;
 
 
@@ -39,20 +38,32 @@ var quizQuestions = [
         var questionTitle = document.getElementById('questionTitle');
         questionTitle.innerHTML = currentQuestion.question;
     
-        // In the first line, we are setting the variable current question to the quizQuestions Object (with all the questions and answers) and we are adding the currentQuestionIndex which will help us target each individual question
-        // In the second line we are setting the question title to the questionTitle we established in index.HTML
-        //In the third line, we are changing the questionTitle to be the appropriate question title for the question the user is answering. We are doing this by targeting the "currentQuestion" variable we established above and using the property "question" to target the question title in js.
+        // In the first line, we are setting the variable current question to the quizQuestions Object (with all the questions and answers) and we are adding the currentQuestionIndex which will help us target each individual question.
+        // In the second line we are setting the question title to the questionTitle variable we established in index.HTML
+        //In the third line, we are changing the questionTitle to be the appropriate question title for the question the user is answering. We are doing this by targeting the "currentQuestion" variable we established above and then targeting the property "question" to target the question title in js.
 
-        // We will be iteerating through each "answer" in the arrays in the object quizQuestions.
-         currentQuestion.answers.forEach(function () {
-            var eachAnswer = document.createElement('li');
+        // In this section of code, we are adding the answers to the buttons for each indiviudal question. 
+         currentQuestion.answers.forEach(function (answer) {
             var button = document.createElement('button');
-            button.innerText = answers.text;
-             console.log(typeof eachAnswer);  //eachAnswer
-            olEl.append(button); //eachAnswerxw
-    });
-     answers.append(olEl);
-    };
+            button.innerText = answer;
+            answersHTML.append(button);
+            }), 
+            // Below, is our conditional statement 
+            answersHTML.addEventListener('click',  function () 
+            {
+            for (var i = 0; i < answers.length; i++){
+            if (answers[i] === quizQuestions.correct) {
+            score =+ 1;
+            currentQuestionIndex++
+             }
+             else {
+            score += 0;
+            currentQuestionIndex++;
+            timer -= (1000 * 5);
+        }
+    }
+});
+}
     
 
 // Whenever we click on the start button we will run the function in the block of code. First, we are preventing the default setting that refreshes the page. And then, we are removing the start container after pressing "start" and showing the first question. 
@@ -75,21 +86,21 @@ var downloadTimer = setInterval(function(){
   timeleft -= 1;
 }, 1000);
 
-
-eachAnswer.addEventListener('click',  function () 
-{
-    for (var i = 0; i < answers.li; i++){
-        if (eachAnswer[i] === quizQuestions.correct) {
-            score =+ 1;
-            quizQuestions++
-        }
-        else {
-            score += 0;
-            quizQuestions++;
-            timer -= (1000 * 5);
-        }
-    }
-});
- 
+// This is a function I had created to excute the conditional statement so the quiz can go to the next question after being answered
+// eachAnswer.addEventListener('click',  function () 
+// {
+//     for (var i = 0; i < answers.length; i++){
+//         if (eachAnswer[i] === quizQuestions.correct) {
+//             score =+ 1;
+//             quizQuestions++
+//         }
+//         else {
+//             score += 0;
+//             quizQuestions++;
+//             timer -= (1000 * 5);
+//         }
+//     }
+// });
+  
       
  
