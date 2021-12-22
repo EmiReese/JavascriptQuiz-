@@ -1,3 +1,65 @@
 .hidden {
     display: none;
 }
+
+:root {
+    font-size: 20px;
+    font-family: 'Prompt', sans-serif;
+}
+
+body {
+    display: flex; 
+    background-color: #C9E9EB;
+    color: black; 
+    display: flex; 
+    flex-direction: row;
+    justify-content: center; 
+}
+
+ #startContainer {
+    width: 100%; 
+    flex-flow: row wrap; 
+    justify-content: center;  
+    height: 100%; 
+    text-align: center;
+} 
+
+h1 {
+    color: black;
+    border: 5px solid black;
+    border-radius: 5px; 
+    font-size: 2rem;
+    padding: 1rem; 
+    margin: 1rem;
+    text-align: center;
+}
+
+
+button {
+    cursor: pointer;
+    border-radius: 5px; 
+    box-shadow: 10px 10px 25px 5px pink;
+    font-size: 1rem; 
+}
+
+button:hover {
+    box-shadow: 10px 10px 25px 5px yellow;
+}
+.timer {
+    background-color: pink;
+    color: black;
+    padding: 5px;
+    margin: 5px; 
+    width: 10%;
+    height: 75px;
+    width: 200px;
+    text-align: center;
+    padding-top: 35px;
+} 
+
+
+#scoreContainer{
+    font-size: 4rem;
+    margin-top: 20%;
+    
+}
